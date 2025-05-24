@@ -4,9 +4,10 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Star, Clock } from "lucide-react"
 import {ResultsSectionProps, VideoResult} from "@/components/ResultsSection/index.types";
 import Image from "next/image";
+import React from "react";
 
 
-export default function ResultsSection({ keywords, videos }: ResultsSectionProps) {
+const ResultsSection: React.FC<ResultsSectionProps> = ({ keywords, videos }: ResultsSectionProps) => {
     return (
         <div className="space-y-8 animate-slide-up">
             {/* Keywords Section */}
@@ -88,3 +89,4 @@ export default function ResultsSection({ keywords, videos }: ResultsSectionProps
         </div>
     )
 }
+export default ResultsSection;

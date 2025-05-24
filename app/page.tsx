@@ -147,7 +147,7 @@ export default function StudyTubePage() {
                                         type="file"
                                         onChange={handleFileChange}
                                         accept=".pdf,.jpg,.jpeg,.png,.txt"
-                                        className="border-gray-200 focus:border-blue-500 focus:ring-blue-500 transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                        className="border-gray-200 focus:border-blue-500 focus:ring-blue-500 transition-all duration-200 h-11 file:py-2 file:mr-4 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 flex items-center justify-center"
                                     />
                                     <p className="text-sm text-gray-500">Formati supportati: PDF, JPG, PNG, TXT</p>
                                     {selectedFile && (
@@ -202,8 +202,7 @@ export default function StudyTubePage() {
                 {isLoading && <LoadingSpinner/>}
 
                 {/* Results */}
-                {results && showResults && !isLoading &&
-                    <ResultsSection keywords={results.keywords} videos={results.videos}/>}
+                {results && showResults && !isLoading && <ResultsSection keywords={results.keywords} videos={results.videos}/>}
             </div>
         </div>
     )
