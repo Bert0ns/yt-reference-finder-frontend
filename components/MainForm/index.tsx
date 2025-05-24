@@ -49,17 +49,17 @@ const MainForm: React.FC<MainFormProps> = ({resetFormState, setIsLoading, setRes
                 const data: ProcessResponse = await response.json();
                 if (data.error) {
                     alert(data.error)
-                    console.error("Error from API:", data.error)
-                    return
+                    console.error("Error from API:", data.error);
+                    return;
                 }
 
-                setResults(data)
+                setResults(data);
                 setTimeout(() => setShowResults(true), 300);
             } catch (error) {
-                alert("Si è verificato un errore durante l'elaborazione. \nForse il server non è raggiungibile?")
-                console.error(error)
+                alert("Si è verificato un errore durante l'elaborazione. \nForse il server non è raggiungibile?");
+                console.error(error);
             } finally {
-                setIsLoading(false)
+                setIsLoading(false);
             }
         },
         [textInput, selectedFile, setIsLoading, setShowResults, setResults],
@@ -71,9 +71,7 @@ const MainForm: React.FC<MainFormProps> = ({resetFormState, setIsLoading, setRes
                 <CardContent className="p-8">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <TextInput setTextInput={setTextInput} textInput={textInput} />
-
                         <FileUpload2 selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
-
                         <SubmitButton results={results} isLoading={isLoading} resetForm={resetForm} />
                     </form>
                 </CardContent>

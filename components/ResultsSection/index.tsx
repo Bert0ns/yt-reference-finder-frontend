@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Star, Clock } from "lucide-react"
 import {ResultsSectionProps, VideoResult} from "@/components/ResultsSection/index.types";
 import Image from "next/image";
-import React from "react";
+import React, { forwardRef } from "react";
 
 
-const ResultsSection: React.FC<ResultsSectionProps> = ({ keywords, videos }: ResultsSectionProps) => {
+const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywords, videos }: ResultsSectionProps, ref) => {
     return (
-        <div className="space-y-8 animate-slide-up">
+        <div ref={ref} className="space-y-8 animate-slide-up">
             {/* Keywords Section */}
             <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
@@ -88,5 +88,6 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ keywords, videos }: Res
             </div>
         </div>
     )
-}
+})
+ResultsSection.displayName = "ResultsSection";
 export default ResultsSection;

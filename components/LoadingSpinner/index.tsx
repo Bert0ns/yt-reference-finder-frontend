@@ -1,9 +1,9 @@
 import { Sparkles, Video } from "lucide-react"
-import React from "react";
+import React, {forwardRef} from "react";
 
-const LoadingSpinner: React.FC = () => {
+const LoadingSpinner = forwardRef<HTMLDivElement>(({}, ref) => {
     return (
-        <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
+        <div ref={ref} className="flex flex-col items-center justify-center py-16 animate-fade-in">
             <div className="relative mb-6">
                 {/* Outer rotating ring */}
                 <div className="w-20 h-20 border-4 border-blue-200 rounded-full animate-spin border-t-blue-600"></div>
@@ -37,5 +37,6 @@ const LoadingSpinner: React.FC = () => {
             </div>
         </div>
     )
-}
+})
+LoadingSpinner.displayName = "LoadingSpinner"
 export default LoadingSpinner;
