@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Star, Clock } from "lucide-react"
 import {ResultsSectionProps, VideoResult} from "@/components/ResultsSection/index.types";
+import Image from "next/image";
 
 
 export default function ResultsSection({ keywords, videos }: ResultsSectionProps) {
@@ -40,15 +41,17 @@ export default function ResultsSection({ keywords, videos }: ResultsSectionProps
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {videos.map((video: VideoResult, index: number) => (
                         <Card
-                            key={video.id}
+                            key={`video-${video.id}-${index}`}
                             className="group hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border-0 bg-white/80 backdrop-blur-sm animate-slide-up overflow-hidden"
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
                             <div className="relative overflow-hidden">
-                                <img
+                                <Image
                                     src={video.thumbnail || "/placeholder.svg"}
                                     alt={video.title}
                                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                                    width={500}
+                                    height={300}
                                 />
                                 <div className="absolute top-3 right-3">
                                     <Badge className="bg-green-500 hover:bg-green-600 text-white border-0 shadow-lg">
