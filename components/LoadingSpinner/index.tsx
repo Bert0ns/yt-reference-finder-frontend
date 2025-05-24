@@ -1,6 +1,7 @@
 import { Sparkles, Video } from "lucide-react"
+import React from "react";
 
-export default function LoadingSpinner() {
+const LoadingSpinner: React.FC = () => {
     return (
         <div className="flex flex-col items-center justify-center py-16 animate-fade-in">
             <div className="relative mb-6">
@@ -37,3 +38,4 @@ export default function LoadingSpinner() {
         </div>
     )
 }
+export default LoadingSpinner;
