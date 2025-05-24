@@ -1,5 +1,13 @@
-import {ProcessResponse} from "@/lib/types";
+export interface VideoResult {
+    id: string
+    title: string
+    description: string
+    thumbnail: string
+    url: string
+    relevance_score: number
+}
 
 export interface ResultsSectionProps {
-    results: ProcessResponse
+    keywords: string[]
+    videos: VideoResult[]
 }

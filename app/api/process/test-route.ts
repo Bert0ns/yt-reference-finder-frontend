@@ -1,76 +1,85 @@
-import { NextRequest, NextResponse } from "next/server"
-import {ProcessResponse} from "@/lib/types";
+import { type NextRequest, NextResponse } from "next/server"
 
+// Mock data for demonstration
+const mockKeywords = [
+    "machine learning",
+    "algoritmi",
+    "reti neurali",
+    "deep learning",
+    "intelligenza artificiale",
+    "python",
+    "tensorflow",
+    "data science",
+]
+
+const mockVideos = [
+    {
+        id: "1",
+        title: "Introduzione al Machine Learning - Corso Completo",
+        description:
+            "Un corso completo che copre tutti i fondamenti del machine learning, dagli algoritmi di base alle reti neurali avanzate. Perfetto per principianti e studenti universitari.",
+        thumbnail: "/placeholder.svg?height=200&width=300",
+        url: "https://youtube.com/watch?v=example1",
+        relevance_score: 0.95,
+    },
+    {
+        id: "2",
+        title: "Algoritmi di Deep Learning Spiegati Semplicemente",
+        description:
+            "Una spiegazione chiara e dettagliata degli algoritmi di deep learning più importanti, con esempi pratici e implementazioni in Python.",
+        thumbnail: "/placeholder.svg?height=200&width=300",
+        url: "https://youtube.com/watch?v=example2",
+        relevance_score: 0.88,
+    },
+    {
+        id: "3",
+        title: "Reti Neurali: Teoria e Pratica",
+        description:
+            "Scopri come funzionano le reti neurali artificiali, dalla teoria matematica alle applicazioni pratiche nel mondo reale.",
+        thumbnail: "/placeholder.svg?height=200&width=300",
+        url: "https://youtube.com/watch?v=example3",
+        relevance_score: 0.82,
+    },
+    {
+        id: "4",
+        title: "Python per Data Science - Tutorial Avanzato",
+        description:
+            "Impara ad utilizzare Python per la data science con librerie come NumPy, Pandas, Matplotlib e Scikit-learn.",
+        thumbnail: "/placeholder.svg?height=200&width=300",
+        url: "https://youtube.com/watch?v=example4",
+        relevance_score: 0.76,
+    },
+]
 
 export async function POST(request: NextRequest) {
     try {
         const formData = await request.formData()
-        const text = formData.get("text") as string | null
-        const file = formData.get("file") as File | null
+        const text = formData.get("text") as string
+        const file = formData.get("file") as File
 
-        if (!text && !file) {
-            return NextResponse.json<ProcessResponse>({
-                error: "Nessun testo o file fornito",
-                keywords: [],
-                queries: [],
-                videos: []
-            }, { status: 400 })
-        }
-
-        // Simulazione di una richiesta al backend Python
-        // In produzione, qui chiameresti il backend effettivo
-
-        // Aggiungi un ritardo artificiale per simulare l'elaborazione
+        // Simulate processing delay
         await new Promise((resolve) => setTimeout(resolve, 2000))
 
-        // Dati di esempio
-        const mockResponse: ProcessResponse = {
-            keywords: ["intelligenza artificiale", "machine learning", "deep learning", "reti neurali", "algoritmi"],
-            queries: ["lezione intelligenza artificiale spiegazione", "tutorial machine learning", "reti neurali semplici"],
-            videos: [
-                {
-                    title: "Introduzione all'Intelligenza Artificiale",
-                    description: "In questo video introduttivo parleremo dei concetti base dell'intelligenza artificiale e delle sue applicazioni nel mondo moderno.",
-                    thumbnail: "https://i.ytimg.com/vi/mJeNghZXtMo/hqdefault.jpg",
-                    video_id: "mJeNghZXtMo",
-                    url: "https://www.youtube.com/watch?v=mJeNghZXtMo",
-                    relevance_score: 0.95
-                },
-                {
-                    title: "Machine Learning Spiegato Semplice",
-                    description: "Una spiegazione chiara e concisa di come funziona il machine learning e perché è importante nella tecnologia moderna.",
-                    thumbnail: "https://i.ytimg.com/vi/f_uwKZIAeM0/hqdefault.jpg",
-                    video_id: "f_uwKZIAeM0",
-                    url: "https://www.youtube.com/watch?v=f_uwKZIAeM0",
-                    relevance_score: 0.89
-                },
-                {
-                    title: "Le Reti Neurali: Come Funzionano?",
-                    description: "Questo video esplora il funzionamento delle reti neurali artificiali, la base del deep learning moderno.",
-                    thumbnail: "https://i.ytimg.com/vi/aircAruvnKk/hqdefault.jpg",
-                    video_id: "aircAruvnKk",
-                    url: "https://www.youtube.com/watch?v=aircAruvnKk",
-                    relevance_score: 0.82
-                },
-                {
-                    title: "Deep Learning: Dalle Basi alle Applicazioni",
-                    description: "Un'esplorazione completa del deep learning, dalle fondamenta teoriche alle applicazioni pratiche nel mondo reale.",
-                    thumbnail: "https://i.ytimg.com/vi/0VH1Lim8gL8/hqdefault.jpg",
-                    video_id: "0VH1Lim8gL8",
-                    url: "https://www.youtube.com/watch?v=0VH1Lim8gL8",
-                    relevance_score: 0.75
-                }
-            ]
+        if (!text && !file) {
+            return NextResponse.json({ error: "Nessun contenuto fornito" }, { status: 400 })
         }
 
-        return NextResponse.json<ProcessResponse>(mockResponse)
+        // In a real implementation, you would:
+        // 1. Extract text from uploaded files (PDF, images with OCR, etc.)
+        // 2. Process the text to extract keywords using NLP
+        // 3. Search YouTube API for relevant videos
+        // 4. Calculate relevance scores
+
+        // For now, return mock data
+        const selectedKeywords = mockKeywords.slice(0, Math.floor(Math.random() * 4) + 3)
+        const selectedVideos = mockVideos.slice(0, Math.floor(Math.random() * 2) + 3)
+
+        return NextResponse.json({
+            keywords: selectedKeywords,
+            videos: selectedVideos,
+        })
     } catch (error) {
-        console.error("Errore durante l'elaborazione:", error)
-        return NextResponse.json<ProcessResponse>({
-            error: "Si è verificato un errore durante l'elaborazione della richiesta",
-            keywords: [],
-            queries: [],
-            videos: []
-        }, { status: 500 })
+        console.error("Error processing request:", error)
+        return NextResponse.json({ error: "Errore interno del server" }, { status: 500 })
     }
 }
