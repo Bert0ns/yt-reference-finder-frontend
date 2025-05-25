@@ -1,6 +1,7 @@
 import {Button} from "@/components/ui/button";
 import {Search} from "lucide-react";
 import React from "react";
+import {SubmitButtonProps} from "@/components/SubmitButton/index.types";
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({isLoading, results, resetForm}) => {
     return (
