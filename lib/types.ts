@@ -5,6 +5,7 @@ export interface VideoResult {
     thumbnail: string
     url: string
     relevance_score: number
+    engagement_score: number;
 }
 
 export interface ProcessResponse {

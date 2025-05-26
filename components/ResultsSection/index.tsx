@@ -79,7 +79,7 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywor
                                 />
                                 <div className="absolute top-3 right-3">
                                     <Badge className="bg-green-500 hover:bg-green-600 text-white border-0 shadow-lg">
-                                        {(video.relevance_score * 100).toFixed(1)}%
+                                        {(video.engagement_score * 100).toFixed(1)}%
                                     </Badge>
                                 </div>
                             </div>
