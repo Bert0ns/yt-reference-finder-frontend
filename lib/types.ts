@@ -10,5 +10,6 @@ export interface VideoResult {
 export interface ProcessResponse {
     keywords: string[]
     videos: VideoResult[]
+    queries: string[]
     error?: string
 }

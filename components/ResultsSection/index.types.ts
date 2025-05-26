@@ -1,13 +1,4 @@
-export interface VideoResult {
-    id: string
-    title: string
-    description: string
-    thumbnail: string
-    url: string
-    relevance_score: number
-}
+import {ProcessResponse} from "@/lib/types";
 
-export interface ResultsSectionProps {
-    keywords: string[]
-    videos: VideoResult[]
-}
+
+export type ResultsSectionProps = ProcessResponse

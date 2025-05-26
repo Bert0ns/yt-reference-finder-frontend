@@ -44,7 +44,10 @@ export default function StudyTubePage() {
 
                 {isLoading && <LoadingSpinner ref={loadingSpinnerRef}/>}
 
-                {results && showResults && !isLoading && <ResultsSection ref={resultSectionRef} keywords={results.keywords} videos={results.videos}/>}
+                {results && showResults && !isLoading && <ResultsSection ref={resultSectionRef}
+                                                                         keywords={results.keywords}
+                                                                         videos={results.videos}
+                                                                         queries={results.queries}/>}
             </div>
         </div>
     )

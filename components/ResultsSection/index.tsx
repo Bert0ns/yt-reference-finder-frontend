@@ -1,13 +1,14 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Star, Clock } from "lucide-react"
-import {ResultsSectionProps, VideoResult} from "@/components/ResultsSection/index.types";
+import {ExternalLink, Star, Clock, MessageCircleQuestion} from "lucide-react"
+import {ResultsSectionProps} from "@/components/ResultsSection/index.types";
 import Image from "next/image";
 import React, { forwardRef } from "react";
+import {VideoResult} from "@/lib/types";
 
 
-const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywords, videos }: ResultsSectionProps, ref) => {
+const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywords, videos, queries }: ResultsSectionProps, ref) => {
     return (
         <div ref={ref} className="space-y-8 animate-slide-up">
             {/* Keywords Section */}
@@ -26,6 +27,28 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywor
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
                                 {keyword}
+                            </Badge>
+                        ))}
+                    </div>
+                </CardContent>
+            </Card>
+
+            {/* Queries Section */}
+            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <MessageCircleQuestion className="w-5 h-5 text-yellow-500" />
+                        Query di ricerca fatte a youtube:
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                        {queries.map((query, index) => (
+                            <Badge
+                                key={index}
+                                variant="default"
+                                className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border-0 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 animate-fade-in"
+                                style={{ animationDelay: `${index * 100}ms` }}
+                            >
+                                {query}
                             </Badge>
                         ))}
                     </div>
