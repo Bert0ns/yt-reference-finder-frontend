@@ -111,6 +111,6 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywor
             </div>
         </div>
     )
-})
+});
 ResultsSection.displayName = "ResultsSection";
 export default ResultsSection;
