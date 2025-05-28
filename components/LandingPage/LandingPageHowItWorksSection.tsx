@@ -48,15 +48,6 @@ const LandingPageHowItWorksSection = () => {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="bg-gray-100 p-4 rounded-xl">
-                                        <Image
-                                            src="/placeholder.svg?height=200&width=300"
-                                            alt="Paste your text"
-                                            width={300}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
-                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -85,15 +76,6 @@ const LandingPageHowItWorksSection = () => {
                                                 <span>Query formulation</span>
                                             </li>
                                         </ul>
-                                    </div>
-                                    <div className="bg-gray-100 p-4 rounded-xl">
-                                        <Image
-                                            src="/placeholder.svg?height=200&width=300"
-                                            alt="AI Analysis"
-                                            width={300}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
                                     </div>
                                 </div>
                             </CardContent>
@@ -124,15 +106,6 @@ const LandingPageHowItWorksSection = () => {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div className="bg-gray-100 p-4 rounded-xl">
-                                        <Image
-                                            src="/placeholder.svg?height=200&width=300"
-                                            alt="YouTube Search"
-                                            width={300}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
-                                    </div>
                                 </div>
                             </CardContent>
                         </Card>
@@ -161,15 +134,6 @@ const LandingPageHowItWorksSection = () => {
                                                 <span>Direct YouTube links</span>
                                             </li>
                                         </ul>
-                                    </div>
-                                    <div className="bg-gray-100 p-4 rounded-xl">
-                                        <Image
-                                            src="/placeholder.svg?height=200&width=300"
-                                            alt="View Results"
-                                            width={300}
-                                            height={200}
-                                            className="rounded-lg"
-                                        />
                                     </div>
                                 </div>
                             </CardContent>
