@@ -3,6 +3,7 @@ import "./globals.css";
 import React from "react";
 import {Inter} from "next/font/google";
 import MainHeader from "@/components/MainHeader";
+import MainFooter from "@/components/MainFooter";
 
 export const metadata: Metadata = {
     title: "StudyTube - Trova Video per i tuoi Appunti",
@@ -21,9 +22,10 @@ export default function RootLayout({
         <html lang="en">
         <body className={`${inter.className} antialiased`}>
             <MainHeader />
-        <div className="relative flex min-h-screen flex-col">
-            {children}
-        </div>
+            <div className="relative flex min-h-screen flex-col">
+                {children}
+            </div>
+            <MainFooter />
         </body>
         </html>
     );

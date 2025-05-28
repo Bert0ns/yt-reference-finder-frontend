@@ -4,8 +4,8 @@ import {useCallback, useState} from "react"
 import LoadingSpinner from "@/components/LoadingSpinner"
 import ResultsSection from "@/components/ResultsSection"
 import {ProcessResponse} from "@/lib/types"
-import MainPageHero from "@/components/MainPageHero";
-import MainForm from "@/components/MainForm";
+import MainPageHero from "../../components/ReferenceFinderPage/MainPageHero";
+import MainForm from "../../components/ReferenceFinderPage/MainForm";
 
 
 export default function StudyTubePage() {
