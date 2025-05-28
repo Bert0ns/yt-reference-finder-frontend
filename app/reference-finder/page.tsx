@@ -43,10 +43,13 @@ export default function ReferenceFinderPage() {
 
                 {isLoading && <LoadingSpinner ref={loadingSpinnerRef}/>}
 
-                {results && showResults && !isLoading && <ResultsSection ref={resultSectionRef}
-                                                                         keywords={results.keywords}
-                                                                         videos={results.videos}
-                                                                         queries={results.queries}/>}
+                {results && showResults && !isLoading && (
+                    <ResultsSection ref={resultSectionRef}
+                                    keywords={results.keywords}
+                                    videos={results.videos}
+                                    queries={results.queries}
+                    />
+                )}
             </div>
         </div>
     )
