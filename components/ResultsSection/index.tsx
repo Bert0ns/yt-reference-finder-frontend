@@ -61,14 +61,14 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
                 {/* Tabs for different result types */}
                 <Tabs defaultValue="videos" value={activeTab} onValueChange={setActiveTab} className="w-full">
                     <TabsList className="grid grid-cols-3 mb-8">
-                        <TabsTrigger value="videos" className="text-base">
-                            Videos
-                        </TabsTrigger>
                         <TabsTrigger value="keywords" className="text-base">
                             Keywords
                         </TabsTrigger>
                         <TabsTrigger value="queries" className="text-base">
                             Search Queries
+                        </TabsTrigger>
+                        <TabsTrigger value="videos" className="text-base">
+                            Videos
                         </TabsTrigger>
                     </TabsList>
 
