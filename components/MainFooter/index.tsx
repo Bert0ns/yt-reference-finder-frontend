@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const MainFooter = () => {
     return (
-        <footer className="container mx-auto px-4 py-12 border-t border-gray-200">
-            <div className="grid md:grid-cols-4 gap-8">
+        <footer className=" px-12 py-8 border-t w-full border-gray-200">
+            <div className="grid md:grid-cols-1 gap-8">
                 <div className="space-y-4">
                     <Link href="/" className="flex items-center gap-2">
                         <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
@@ -64,7 +64,6 @@ const MainFooter = () => {
                     </ul>
                 </div>
                 */}
-
                 {/*
                 <div>
                     <h4 className="font-semibold mb-4">Company</h4>
@@ -92,7 +91,7 @@ const MainFooter = () => {
                 */}
             </div>
 
-            <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+            <div className="w-full mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
                 <p>© {new Date().getFullYear()} Reference Finder.</p>
             </div>
         </footer>
