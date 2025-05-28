@@ -3,7 +3,7 @@ import {MainFormProps} from "@/components/ReferenceFinderForm/index.types";
 import {Card, CardContent, CardHeader} from "@/components/ui/card";
 import {ProcessResponse} from "@/lib/types";
 import TextInput from "@/components/TextInput";
-import FileUpload2 from "@/components/FileUpload-2";
+import FileUpload from "@/components/FileUpload";
 import SubmitButton from "@/components/SubmitButton";
 import {FileText, Upload} from "lucide-react";
 
@@ -92,7 +92,7 @@ const MainForm: React.FC<MainFormProps> = ({
                 <CardContent className="p-8">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <TextInput setTextInput={setTextInput} textInput={textInput} />
-                        <FileUpload2 selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
+                        <FileUpload selectedFile={selectedFile} setSelectedFile={setSelectedFile} />
                         <SubmitButton results={results} isLoading={isLoading} resetForm={resetForm} />
                     </form>
                 </CardContent>

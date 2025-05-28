@@ -1,4 +1,6 @@
+import React from "react";
+
 export interface FileUploadProps {
-    onSubmit: (formData: FormData) => Promise<void>
-    isLoading: boolean
+    selectedFile: File | null;
+    setSelectedFile: React.Dispatch<React.SetStateAction<File | null>>;
 }
