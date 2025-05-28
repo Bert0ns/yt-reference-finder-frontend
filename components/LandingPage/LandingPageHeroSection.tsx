@@ -31,7 +31,7 @@ const LandingPageHeroSection = () => {
                             size="lg"
                             className="py-6 px-8 rounded-xl border-gray-300 hover:bg-gray-50 transition-all duration-200"
                         >
-                            <Link href="/public#how-it-works">Learn More</Link>
+                            <Link href="/#how-it-works">Learn More</Link>
                         </Button>
                     </div>
                 </div>
