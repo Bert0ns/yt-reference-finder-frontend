@@ -2,12 +2,11 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import {ExternalLink, Star, Clock, MessageCircleQuestion, Share2, Download, Bookmark} from "lucide-react"
+import {ExternalLink, Star, Clock, MessageCircleQuestion} from "lucide-react"
 import {ResultsSectionProps} from "@/components/ResultsSection/index.types";
 import Image from "next/image";
 import React, {forwardRef, useState} from "react";
 import {VideoResult} from "@/lib/types";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
 const ResultsSectionV2 = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywords, videos, queries }: ResultsSectionProps, ref) => {
@@ -122,58 +121,32 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
         const [activeTab, setActiveTab] = useState("videos")
 
         // Calculate statistics
-        const totalVideos = videos.length
-        const averageScore =
-            videos.length > 0 ? videos.reduce((sum, video) => sum + video.engagement_score, 0) / videos.length : 0
+        const totalVideos = videos.length;
+        const averageScore = videos.length > 0 ? videos.reduce((sum, video) => sum + video.engagement_score, 0) / videos.length : 0;
 
         return (
             <div ref={ref} className="space-y-8 animate-slide-up">
                 {/* Results Summary Card */}
                 <Card className="shadow-xl border-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                    <CardContent className="p-6">
-                        <h2 className="text-2xl font-bold mb-4">Analysis Results</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                                <div className="text-3xl font-bold">{keywords.length}</div>
+                    <CardContent className="p-4">
+                        <h2 className="text-2xl font-bold mb-2">Analysis Results</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2">
+                                <div className="text-2xl font-bold">{keywords.length}</div>
                                 <div className="text-sm text-white/80">Keywords Identified</div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                                <div className="text-3xl font-bold">{totalVideos}</div>
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2">
+                                <div className="text-2xl font-bold">{totalVideos}</div>
                                 <div className="text-sm text-white/80">Videos Found</div>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                                <div className="text-3xl font-bold">{(averageScore * 100).toFixed(1)}%</div>
+                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2">
+                                <div className="text-2xl font-bold">{(averageScore * 100).toFixed(1)}%</div>
                                 <div className="text-sm text-white/80">Average Relevance</div>
                             </div>
                         </div>
 
-                        <div className="flex justify-end gap-2 mt-4">
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
-                                            <Share2 className="w-4 h-4" />
-                                        </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        <p>Share results</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <Button variant="ghost" size="icon" className="text-white hover:bg-white/20">
-                                            <Download className="w-4 h-4" />
-                                        </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        <p>Download results</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-
+                        {/*
+                        <div className="flex justify-end gap-2 mt-0">
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
@@ -187,6 +160,7 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
                                 </Tooltip>
                             </TooltipProvider>
                         </div>
+                        */}
                     </CardContent>
                 </Card>
 
