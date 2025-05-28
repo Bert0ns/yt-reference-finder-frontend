@@ -19,14 +19,15 @@ const MainHeader = () => {
 
     return (
         <header className="container mx-auto px-4 py-6 flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
                 <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-md">
                     <Video className="w-5 h-5 text-white"/>
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     Reference Finder
                 </span>
-            </div>
+            </Link>
+
             <div className="flex items-center gap-4">
                 {/*<Link href="/docs" className="text-gray-600 hover:text-blue-600 transition-colors">
                     Docs
