@@ -9,112 +9,6 @@ import React, {forwardRef, useState} from "react";
 import {VideoResult} from "@/lib/types";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
-const ResultsSectionV2 = forwardRef<HTMLDivElement, ResultsSectionProps>(({ keywords, videos, queries }: ResultsSectionProps, ref) => {
-    return (
-        <div ref={ref} className="space-y-8 animate-slide-up">
-            {/* Keywords Section */}
-            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-                <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        <Star className="w-5 h-5 text-yellow-500" />
-                        Parole chiave identificate:
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                        {keywords.map((keyword, index) => (
-                            <Badge
-                                key={index}
-                                variant="secondary"
-                                className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border-0 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 animate-fade-in"
-                                style={{ animationDelay: `${index * 100}ms` }}
-                            >
-                                {keyword}
-                            </Badge>
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
-
-            {/* Queries Section */}
-            <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-                <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        <MessageCircleQuestion className="w-5 h-5 text-yellow-500" />
-                        Query di ricerca fatte a youtube:
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                        {queries.map((query, index) => (
-                            <Badge
-                                key={index}
-                                variant="default"
-                                className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border-0 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 animate-fade-in"
-                                style={{ animationDelay: `${index * 100}ms` }}
-                            >
-                                {query}
-                            </Badge>
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
-
-            {/* Videos Section */}
-            <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                    <Clock className="w-6 h-6 text-green-500" />
-                    Video consigliati:
-                </h3>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {videos.map((video: VideoResult, index: number) => (
-                        <Card
-                            key={`video-${video.id}-${index}`}
-                            className="group hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border-0 bg-white/80 backdrop-blur-sm animate-slide-up overflow-hidden"
-                            style={{ animationDelay: `${index * 150}ms` }}
-                        >
-                            <div className="relative overflow-hidden">
-                                <Image
-                                    src={video.thumbnail || "/placeholder.svg"}
-                                    alt={video.title}
-                                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                                    width={500}
-                                    height={300}
-                                />
-                                <div className="absolute top-3 right-3">
-                                    <Badge className="bg-green-500 hover:bg-green-600 text-white border-0 shadow-lg">
-                                        {(video.engagement_score * 100).toFixed(1)}%
-                                    </Badge>
-                                </div>
-                            </div>
-
-                            <CardContent className="p-6">
-                                <h5 className="font-bold text-lg text-gray-800 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
-                                    {video.title}
-                                </h5>
-                                <p className="text-gray-600 text-sm mb-4 line-clamp-3">{video.description}</p>
-
-                                <Button
-                                    asChild
-                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
-                                >
-                                    <a
-                                        href={video.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-2"
-                                    >
-                                        <ExternalLink className="w-4 h-4" />
-                                        Guarda Video
-                                    </a>
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-});
-ResultsSectionV2.displayName = "ResultsSection";
-export { ResultsSectionV2 };
 
 const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
     ({ keywords, videos, queries }: ResultsSectionProps, ref) => {
@@ -282,6 +176,5 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
         )
     },
 )
-
 ResultsSection.displayName = "ResultsSection"
 export default ResultsSection;
