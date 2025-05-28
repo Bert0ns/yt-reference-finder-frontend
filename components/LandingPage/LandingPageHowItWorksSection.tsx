@@ -1,7 +1,6 @@
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Card, CardContent} from "@/components/ui/card";
 import {CheckCircle} from "lucide-react";
-import Image from "next/image";
 
 const LandingPageHowItWorksSection = () => {
     return (
