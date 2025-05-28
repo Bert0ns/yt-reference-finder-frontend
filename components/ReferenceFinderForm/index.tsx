@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react";
-import {MainFormProps} from "@/components/MainForm/index.types";
+import {MainFormProps} from "@/components/ReferenceFinderForm/index.types";
 import {Card, CardContent} from "@/components/ui/card";
 import {ProcessResponse} from "@/lib/types";
 import TextInput from "@/components/TextInput";
