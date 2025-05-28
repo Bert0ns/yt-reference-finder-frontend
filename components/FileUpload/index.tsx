@@ -115,7 +115,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
                         id="fileInput"
                         onChange={handleChange}
                         className="hidden"
-                        accept=".pdf,.txt,.doc,.docx"
+                        accept=".pdf,.txt,.doc,.docx,.txt,.md"
                     />
 
                     <div className="p-4 bg-purple-100 rounded-full mb-4">
@@ -125,7 +125,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
                     <p className="text-center text-gray-600 mb-2">
                         <span className="font-semibold">Click to upload</span> or drag and drop
                     </p>
-                    <p className="text-sm text-gray-500 text-center">PDF, TXT, DOC, DOCX (Max {Math.floor(MAX_FILE_SIZE/1000000)}MB)</p>
+                    <p className="text-sm text-gray-500 text-center">PDF, TXT, DOC, DOCX, TXT, MD (Max {Math.floor(MAX_FILE_SIZE/1000000)}MB)</p>
                 </div>
             ) : (
                 <Card className="p-4 border-0 bg-white shadow-md">
