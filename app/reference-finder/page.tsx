@@ -7,7 +7,7 @@ import {ProcessResponse} from "@/lib/types"
 import ReferenceFinderForm from "@/components/ReferenceFinderForm";
 import ReferenceFinderPageHero from "@/components/ReferenceFinderPage/ReferenceFinderPageHero";
 
-export default function StudyTubePage() {
+export default function ReferenceFinderPage() {
     const [isLoading, setIsLoading] = useState(false)
     const [results, setResults] = useState<ProcessResponse | null>(null)
     const [showResults, setShowResults] = useState(false)
