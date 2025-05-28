@@ -4,9 +4,8 @@ import {useCallback, useState} from "react"
 import LoadingSpinner from "@/components/LoadingSpinner"
 import ResultsSection from "@/components/ResultsSection"
 import {ProcessResponse} from "@/lib/types"
-import MainPageHero from "../../components/ReferenceFinderPage/MainPageHero";
-import MainForm from "../../components/ReferenceFinderPage/MainForm";
-
+import ReferenceFinderForm from "@/components/ReferenceFinderForm";
+import ReferenceFinderPageHero from "@/components/ReferenceFinderPage/ReferenceFinderPageHero";
 
 export default function StudyTubePage() {
     const [isLoading, setIsLoading] = useState(false)
@@ -33,9 +32,9 @@ export default function StudyTubePage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
             <div className="container mx-auto px-4 py-8 max-w-6xl">
-                <MainPageHero />
+                <ReferenceFinderPageHero />
 
-                <MainForm resetFormState={resetForm}
+                <ReferenceFinderForm resetFormState={resetForm}
                           setIsLoading={setIsLoading}
                           setShowResults={setShowResults}
                           setResults={setResults}
