@@ -22,7 +22,7 @@ const LandingPageHowItWorksSection = () => {
                         <TabsTrigger value="step4">Step 4</TabsTrigger>
                     </TabsList>
                     <TabsContent value="step1" className="border-0 p-0">
-                        <Card className="border-0 shadow-lg">
+                        <Card className="border shadow-lg">
                             <CardContent className="p-6 md:p-8">
                                 <div className="grid md:grid-cols-2 gap-8 items-center">
                                     <div>
@@ -52,7 +52,7 @@ const LandingPageHowItWorksSection = () => {
                         </Card>
                     </TabsContent>
                     <TabsContent value="step2" className="border-0 p-0">
-                        <Card className="border-0 shadow-lg">
+                        <Card className="border shadow-lg">
                             <CardContent className="p-6 md:p-8">
                                 <div className="grid md:grid-cols-2 gap-8 items-center">
                                     <div>
@@ -81,7 +81,7 @@ const LandingPageHowItWorksSection = () => {
                         </Card>
                     </TabsContent>
                     <TabsContent value="step3" className="border-0 p-0">
-                        <Card className="border-0 shadow-lg">
+                        <Card className="border shadow-lg">
                             <CardContent className="p-6 md:p-8">
                                 <div className="grid md:grid-cols-2 gap-8 items-center">
                                     <div>
@@ -110,7 +110,7 @@ const LandingPageHowItWorksSection = () => {
                         </Card>
                     </TabsContent>
                     <TabsContent value="step4" className="border-0 p-0">
-                        <Card className="border-0 shadow-lg">
+                        <Card className="border shadow-lg">
                             <CardContent className="p-6 md:p-8">
                                 <div className="grid md:grid-cols-2 gap-8 items-center">
                                     <div>

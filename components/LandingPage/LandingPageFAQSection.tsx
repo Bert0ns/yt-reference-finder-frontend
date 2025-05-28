@@ -12,7 +12,7 @@ const LandingPageFAQSection = () => {
 
             <div className="max-w-3xl mx-auto">
                 <Accordion type="single" collapsible className="space-y-4">
-                    <AccordionItem value="item-1" className="border rounded-lg bg-white shadow-sm">
+                    <AccordionItem value="item-1" className="border-2 border-blue-200 rounded-lg bg-white shadow-sm">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                             <span className="text-left font-medium">How does Reference Finder work?</span>
                         </AccordionTrigger>
@@ -25,7 +25,7 @@ const LandingPageFAQSection = () => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-2" className="border rounded-lg bg-white shadow-sm">
+                    <AccordionItem value="item-2" className="border-2 border-blue-200 rounded-lg bg-white shadow-sm">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                             <span className="text-left font-medium">What types of text can I analyze?</span>
                         </AccordionTrigger>
@@ -37,7 +37,7 @@ const LandingPageFAQSection = () => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-3" className="border rounded-lg bg-white shadow-sm">
+                    <AccordionItem value="item-3" className="border-2 border-blue-200 rounded-lg bg-white shadow-sm">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                             <span className="text-left font-medium">How are videos ranked and scored?</span>
                         </AccordionTrigger>
@@ -50,7 +50,7 @@ const LandingPageFAQSection = () => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-4" className="border rounded-lg bg-white shadow-sm">
+                    <AccordionItem value="item-4" className="border-2 border-blue-200 rounded-lg bg-white shadow-sm">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                                 <span
                                     className="text-left font-medium">Is there a limit to how much text I can analyze?</span>
@@ -64,7 +64,7 @@ const LandingPageFAQSection = () => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-5" className="border rounded-lg bg-white shadow-sm">
+                    <AccordionItem value="item-5" className="border-2 border-blue-200 rounded-lg bg-white shadow-sm">
                         <AccordionTrigger className="px-6 py-4 hover:no-underline">
                             <span className="text-left font-medium">Can I save or share my results?</span>
                         </AccordionTrigger>

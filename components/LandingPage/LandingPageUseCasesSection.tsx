@@ -11,7 +11,7 @@ const LandingPageUseCasesSection = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-pink-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Students</h3>
                         <p className="text-gray-600">
@@ -22,7 +22,7 @@ const LandingPageUseCasesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-blue-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Researchers</h3>
                         <p className="text-gray-600">
@@ -32,7 +32,7 @@ const LandingPageUseCasesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-green-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Educators</h3>
                         <p className="text-gray-600">
@@ -43,7 +43,7 @@ const LandingPageUseCasesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-yellow-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Self-Learners</h3>
                         <p className="text-gray-600">
@@ -52,7 +52,7 @@ const LandingPageUseCasesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-purple-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Content Creators</h3>
                         <p className="text-gray-600">
@@ -61,7 +61,7 @@ const LandingPageUseCasesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 bg-white/80 backdrop-blur-sm shadow-lg">
+                <Card className="border-2 border-orange-200 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <h3 className="text-xl font-bold">Professionals</h3>
                         <p className="text-gray-600">

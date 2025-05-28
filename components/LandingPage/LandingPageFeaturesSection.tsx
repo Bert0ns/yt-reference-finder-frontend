@@ -12,8 +12,7 @@ const LandingPageFeaturesSection = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-blue-100 rounded-xl w-fit">
                             <FileText className="w-6 h-6 text-blue-600"/>
@@ -26,8 +25,7 @@ const LandingPageFeaturesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-purple-100 rounded-xl w-fit">
                             <Brain className="w-6 h-6 text-purple-600"/>
@@ -40,8 +38,7 @@ const LandingPageFeaturesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-green-100 rounded-xl w-fit">
                             <Filter className="w-6 h-6 text-green-600"/>
@@ -53,8 +50,7 @@ const LandingPageFeaturesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-yellow-100 rounded-xl w-fit">
                             <Youtube className="w-6 h-6 text-yellow-600"/>
@@ -67,8 +63,7 @@ const LandingPageFeaturesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-red-100 rounded-xl w-fit">
                             <Sparkles className="w-6 h-6 text-red-600"/>
@@ -81,8 +76,7 @@ const LandingPageFeaturesSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card
-                    className="border-0 bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                <Card className="border bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
                     <CardContent className="p-6 space-y-4">
                         <div className="p-3 bg-indigo-100 rounded-xl w-fit">
                             <Search className="w-6 h-6 text-indigo-600"/>
