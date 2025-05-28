@@ -2,16 +2,25 @@
 import React, { useState } from "react"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { Upload, File, X, Check, AlertCircle } from "lucide-react"
+import { Upload, X, Check, AlertCircle } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import {FileUploadProps} from "@/components/FileUpload/index.types";
+import GetFileIcon from "@/components/GetFileIcon";
 
 
 const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }) => {
-    const [dragActive, setDragActive] = useState(false)
-    const [fileError, setFileError] = useState<string | null>(null)
-    const [uploadProgress, setUploadProgress] = useState(0)
+    const [dragActive, setDragActive] = useState(false);
+    const [fileError, setFileError] = useState<string | null>(null);
+    const [uploadProgress, setUploadProgress] = useState(0);
+
+    const allowedFileTypes = [
+        "application/pdf",
+        "text/plain",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ]
+    const MAX_FILE_SIZE = 10*1024*1024;
 
     // Simulate upload progress when a file is selected
     React.useEffect(() => {
@@ -31,107 +40,52 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
     }, [selectedFile])
 
     const handleDrag = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault()
-        e.stopPropagation()
+        e.preventDefault();
+        e.stopPropagation();
         if (e.type === "dragenter" || e.type === "dragover") {
-            setDragActive(true)
+            setDragActive(true);
         } else if (e.type === "dragleave") {
-            setDragActive(false)
+            setDragActive(false);
         }
     }
 
     const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault()
-        e.stopPropagation()
-        setDragActive(false)
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive(false);
 
         if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            handleFile(e.dataTransfer.files[0])
+            handleFile(e.dataTransfer.files[0]);
         }
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
+        e.preventDefault();
         if (e.target.files && e.target.files[0]) {
-            handleFile(e.target.files[0])
+            handleFile(e.target.files[0]);
         }
     }
 
     const handleFile = (file: File) => {
-        setFileError(null)
+        setFileError(null);
 
-        // Check file type
-        const allowedTypes = [
-            "application/pdf",
-            "text/plain",
-            "application/msword",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            "text/csv",
-            "application/vnd.ms-excel",
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        ]
-
-        if (!allowedTypes.includes(file.type)) {
-            setFileError("Please upload a PDF, TXT, DOC, DOCX, CSV, XLS, or XLSX file")
-            return
+        if (!allowedFileTypes.includes(file.type)) {
+            setFileError("Please upload a PDF, TXT, DOC, DOCX, CSV, XLS, or XLSX file");
+            return;
         }
 
-        // Check file size (max 10MB)
-        if (file.size > 10 * 1024 * 1024) {
-            setFileError("File size must be less than 10MB")
-            return
+        if (file.size > MAX_FILE_SIZE) {
+            setFileError(`File size must be less than ${MAX_FILE_SIZE/1000000}MB`);
+            return;
         }
 
-        setSelectedFile(file)
+        setSelectedFile(file);
     }
 
     const removeFile = () => {
-        setSelectedFile(null)
-        setFileError(null)
-        setUploadProgress(0)
-        // Reset file input
-        const fileInput = document.getElementById("fileInput") as HTMLInputElement
-        if (fileInput) fileInput.value = ""
-    }
-
-    const getFileIcon = (fileName: string) => {
-        const extension = fileName.split(".").pop()?.toLowerCase()
-
-        switch (extension) {
-            case "pdf":
-                return (
-                    <div className="p-2 bg-red-100 rounded-lg">
-                        <File className="w-5 h-5 text-red-600" />
-                    </div>
-                )
-            case "doc":
-            case "docx":
-                return (
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                        <File className="w-5 h-5 text-blue-600" />
-                    </div>
-                )
-            case "txt":
-                return (
-                    <div className="p-2 bg-gray-100 rounded-lg">
-                        <File className="w-5 h-5 text-gray-600" />
-                    </div>
-                )
-            case "xls":
-            case "xlsx":
-            case "csv":
-                return (
-                    <div className="p-2 bg-green-100 rounded-lg">
-                        <File className="w-5 h-5 text-green-600" />
-                    </div>
-                )
-            default:
-                return (
-                    <div className="p-2 bg-purple-100 rounded-lg">
-                        <File className="w-5 h-5 text-purple-600" />
-                    </div>
-                )
-        }
+        setSelectedFile(null);
+        setFileError(null);
+        setUploadProgress(0);
     }
 
     return (
@@ -177,7 +131,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
                 <Card className="p-4 border-0 bg-white shadow-md">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            {getFileIcon(selectedFile.name)}
+                            <GetFileIcon fileName={selectedFile.name}/>
                             <div>
                                 <p className="font-medium text-gray-800 truncate max-w-[200px] sm:max-w-[300px]">{selectedFile.name}</p>
                                 <p className="text-sm text-gray-500">{(selectedFile.size / 1024).toFixed(1)} KB</p>
