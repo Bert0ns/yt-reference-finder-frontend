@@ -1,7 +1,8 @@
 import React from "react";
 import {File as FileIcon} from "lucide-react";
+import {GetFileIconProps} from "@/components/GetFileIcon/index.types";
 
-const GetFileIcon: React.FC<{fileName: string}> = ({fileName}) => {
+const GetFileIcon: React.FC<GetFileIconProps> = ({fileName}) => {
     const extension = fileName.split(".").pop()?.toLowerCase()
 
     switch (extension) {
