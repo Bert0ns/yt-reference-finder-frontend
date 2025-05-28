@@ -1,9 +1,22 @@
+"use client";
 import {Video} from "lucide-react";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
+import {useEffect, useState} from "react";
 
 
 const MainHeader = () => {
+    const [showTryNowButton, setShowTryNowButton] = useState(false);
+
+    useEffect(() => {
+        if(typeof window !== "undefined" && window.location.pathname === "/reference-finder") {
+            setShowTryNowButton(false);
+        }
+        else {
+            setShowTryNowButton(true);
+        }
+    }, []);
+
     return (
         <header className="container mx-auto px-4 py-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -18,9 +31,11 @@ const MainHeader = () => {
                 {/*<Link href="/docs" className="text-gray-600 hover:text-blue-600 transition-colors">
                     Docs
                 </Link>*/}
-                <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                    <Link href="/reference-finder">Try Now</Link>
-                </Button>
+                {showTryNowButton && (
+                    <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                        <Link href="/reference-finder">Try Now</Link>
+                    </Button>
+                )}
             </div>
         </header>
     )
