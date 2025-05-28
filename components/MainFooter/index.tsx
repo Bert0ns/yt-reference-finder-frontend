@@ -1,5 +1,4 @@
 import {Video} from "lucide-react";
-import Link from "next/link";
 
 const MainFooter = () => {
     return (
@@ -20,15 +19,10 @@ const MainFooter = () => {
                     </p>
                 </div>
 
+                {/*
                 <div>
                     <h4 className="font-semibold mb-4">Product</h4>
                     <ul className="space-y-2">
-                        <li>
-                            <Link href="/features"
-                                  className="text-gray-600 hover:text-blue-600 transition-colors text-sm">
-                                Features
-                            </Link>
-                        </li>
                         <li>
                             <Link href="/pricing"
                                   className="text-gray-600 hover:text-blue-600 transition-colors text-sm">
@@ -43,7 +37,8 @@ const MainFooter = () => {
                         </li>
                     </ul>
                 </div>
-
+                */}
+                {/*
                 <div>
                     <h4 className="font-semibold mb-4">Resources</h4>
                     <ul className="space-y-2">
@@ -67,7 +62,9 @@ const MainFooter = () => {
                         </li>
                     </ul>
                 </div>
+                */}
 
+                {/*
                 <div>
                     <h4 className="font-semibold mb-4">Company</h4>
                     <ul className="space-y-2">
@@ -91,10 +88,11 @@ const MainFooter = () => {
                         </li>
                     </ul>
                 </div>
+                */}
             </div>
 
             <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
-                <p>© {new Date().getFullYear()} Reference Finder. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Reference Finder.</p>
             </div>
         </footer>
     )
