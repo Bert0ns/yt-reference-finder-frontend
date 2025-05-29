@@ -19,6 +19,10 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
         "text/plain",
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/markdown",
+        "image/png",
+        "image/jpeg",
+        "image/jpg"
     ]
     const MAX_FILE_SIZE = 10*1024*1024;
 
@@ -70,7 +74,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
         setFileError(null);
 
         if (!allowedFileTypes.includes(file.type)) {
-            setFileError("Please upload a PDF, TXT, DOC, or DOCX");
+            setFileError("Please upload a PDF, TXT, DOC, DOCX, TXT, MD, PNG, JPG or JPEG file.");
             return;
         }
 
@@ -125,7 +129,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
                     <p className="text-center text-gray-600 mb-2">
                         <span className="font-semibold">Click to upload</span> or drag and drop
                     </p>
-                    <p className="text-sm text-gray-500 text-center">PDF, TXT, DOC, DOCX, TXT, MD, PNG, JPG, JPEG (Max {Math.floor(MAX_FILE_SIZE/1000000)}MB each)</p>
+                    <p className="text-sm text-gray-500 text-center">PDF, TXT, DOC, DOCX, TXT, MD, PMG, JPG, JPEG (Max {Math.floor(MAX_FILE_SIZE/1000000)}MB each)</p>
                 </div>
             ) : (
                 <Card className="p-4 border-0 bg-white shadow-md">
