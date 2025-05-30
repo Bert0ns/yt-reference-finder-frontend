@@ -175,6 +175,6 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
             </div>
         )
     },
-)
-ResultsSection.displayName = "ResultsSection"
+);
+ResultsSection.displayName = "ResultsSection";
 export default ResultsSection;

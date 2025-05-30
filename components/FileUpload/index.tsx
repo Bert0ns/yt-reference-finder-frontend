@@ -98,7 +98,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ selectedFile, setSelectedFile }
                 <div className="p-2 bg-purple-100 rounded-lg">
                     <Upload className="w-5 h-5 text-purple-600" />
                 </div>
-                Or upload a document:
+                Upload a file:
             </Label>
 
             {!selectedFile ? (
