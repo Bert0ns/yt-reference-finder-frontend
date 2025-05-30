@@ -4,10 +4,11 @@ import React from "react";
 import {Inter} from "next/font/google";
 import MainHeader from "@/components/MainHeader";
 import MainFooter from "@/components/MainFooter";
+import {websiteConfigs} from "@/website.config";
 
 export const metadata: Metadata = {
-    title: "StudyTube - Trova Video per i tuoi Appunti",
-    description: "Analizza i tuoi appunti di studio e trova video YouTube pertinenti",
+    title: websiteConfigs.title,
+    description: websiteConfigs.description,
 }
 
 const inter = Inter({subsets: ["latin"]})

@@ -10,6 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {useState} from "react";
+import {websiteConfigs} from "@/website.config";
 
 const MainHeader = () => {
   const [sheetOpen, setSheetOpen] = useState<boolean>(false);
@@ -44,14 +45,25 @@ const MainHeader = () => {
             </SheetTitle>
           </SheetHeader>
           <nav className="py-6 flex flex-col gap-2 mt-4">
-            <Link href="/" onClick={() => setSheetOpen(false)} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md transition-colors">
-              <Home className="w-5 h-5" />
-              <span>Home</span>
-            </Link>
-            <Link href="/reference-finder" onClick={() => setSheetOpen(false)} className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md transition-colors">
-              <Search className="w-5 h-5" />
-              <span>Reference Finder</span>
-            </Link>
+            {websiteConfigs.menuItems.map((item) => {
+              return (
+                  <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setSheetOpen(false)}
+                      className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md transition-colors"
+                  >
+                    {item.label === "Reference Finder" ? (
+                        <Search className="w-5 h-5"/>
+                    ) : item.label === "Home" ? (
+                        <Home className="w-5 h-5"/>
+                    ) : (
+                        <Video className="w-5 h-5"/>
+                    )}
+                    <span>{item.label}</span>
+                  </Link>
+              )
+            })}
 
             <div className="h-px bg-gray-200 my-4"></div>
 
