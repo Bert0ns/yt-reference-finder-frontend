@@ -78,11 +78,15 @@ const LoadingSpinner = forwardRef<HTMLDivElement>(({}, ref) => {
             <div className="flex items-center gap-4 mt-8">
                 <div className="flex items-center gap-2 px-3 py-2 bg-blue-100 rounded-full">
                     <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-blue-700">Extracting Keywords</span>
+                    <span className="text-sm font-medium text-blue-700">Reading text</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 bg-orange-100 rounded-full">
                     <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
                     <span className="text-sm font-medium text-orange-700">Extracting Keywords</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 bg-amber-100 rounded-full">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-amber-700">Formulating queries</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-2 bg-purple-100 rounded-full">
                     <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-200"></div>

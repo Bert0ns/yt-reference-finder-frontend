@@ -9,6 +9,12 @@ import React, {forwardRef, useState} from "react";
 import {VideoResult} from "@/lib/types";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
+// Funzione per decodificare le entità HTML
+const decodeHtmlEntities = (text: string): string => {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = text;
+    return textarea.value;
+};
 
 const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
     ({ keywords, videos, queries }: ResultsSectionProps, ref) => {
@@ -102,9 +108,9 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
 
                                     <CardContent className="p-6">
                                         <h5 className="font-bold text-lg text-gray-800 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
-                                            {video.title}
+                                            {decodeHtmlEntities(video.title)}
                                         </h5>
-                                        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{video.description}</p>
+                                        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{decodeHtmlEntities(video.description)}</p>
 
                                         <Button
                                             asChild
