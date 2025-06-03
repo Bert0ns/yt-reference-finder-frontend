@@ -6,28 +6,45 @@ import ResultsSection from "@/components/ResultsSection"
 import {ProcessResponse} from "@/lib/types"
 import ReferenceFinderForm from "@/components/ReferenceFinderForm";
 import ReferenceFinderPageHero from "@/components/ReferenceFinderPage/ReferenceFinderPageHero";
+import {ResultsSectionRefHandle} from "@/components/ResultsSection/index.types";
 
 export default function ReferenceFinderPage() {
     const [isLoading, setIsLoading] = useState(false)
-    const [results, setResults] = useState<ProcessResponse | null>(null)
+    const initialResults = useCallback<() => ProcessResponse>(() => ({
+        keywords: [],
+        videos: [],
+        queries: [],
+        done: false,
+        error: undefined
+    }), []);
+    const [results, setResults] = useState<ProcessResponse>(initialResults)
     const [showResults, setShowResults] = useState(false)
 
     const loadingSpinnerRef = React.useRef<HTMLDivElement>(null);
-    const resultSectionRef = React.useRef<HTMLDivElement>(null);
+    const resultSectionRef = React.useRef<ResultsSectionRefHandle>(null);
 
     const resetForm = useCallback(() => {
-        setResults(null)
+        setResults(initialResults)
         setShowResults(false)
-    }, []);
+    }, [initialResults]);
 
     useEffect(() => {
-        if(isLoading && loadingSpinnerRef.current) {
+        if(isLoading && loadingSpinnerRef.current && results.keywords.length === 0) {
             loadingSpinnerRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-        else if(!isLoading && !!results && resultSectionRef.current) {
+        else if(showResults && resultSectionRef.current && results.keywords.length !== 0 && results.queries.length === 0 && results.videos.length === 0) {
             resultSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            resultSectionRef.current.setActiveTab('keywords');
         }
-    }, [isLoading, results]);
+        else if(showResults && resultSectionRef.current && results.keywords.length !== 0 && results.queries.length !== 0 && results.videos.length === 0) {
+            resultSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            resultSectionRef.current.setActiveTab('queries');
+        }
+        else if(showResults && resultSectionRef.current && results.keywords.length !== 0 && results.queries.length !== 0 && results.videos.length !== 0) {
+            resultSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            resultSectionRef.current.setActiveTab('videos');
+        }
+    }, [isLoading, results, showResults]);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -43,11 +60,12 @@ export default function ReferenceFinderPage() {
 
                 {isLoading && <LoadingSpinner ref={loadingSpinnerRef}/>}
 
-                {results && showResults && !isLoading && (
+                {showResults && (
                     <ResultsSection ref={resultSectionRef}
                                     keywords={results.keywords}
                                     videos={results.videos}
                                     queries={results.queries}
+                                    done={results.done}
                     />
                 )}
             </div>

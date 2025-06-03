@@ -3,9 +3,9 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {ExternalLink, Star, Clock, MessageCircleQuestion} from "lucide-react"
-import {ResultsSectionProps} from "@/components/ResultsSection/index.types";
+import {ResultsSectionProps, ResultsSectionRefHandle} from "@/components/ResultsSection/index.types";
 import Image from "next/image";
-import React, {forwardRef, useState} from "react";
+import React, {forwardRef, useImperativeHandle, useRef, useState} from "react";
 import {VideoResult} from "@/lib/types";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
@@ -16,16 +16,23 @@ const decodeHtmlEntities = (text: string): string => {
     return textarea.value;
 };
 
-const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
+const ResultsSection = forwardRef<ResultsSectionRefHandle, ResultsSectionProps>(
     ({ keywords, videos, queries }: ResultsSectionProps, ref) => {
-        const [activeTab, setActiveTab] = useState("videos")
+        const [activeTab, setActiveTab] = useState<string>("videos")
+        const divRef = useRef<HTMLDivElement>(null);
+
+        useImperativeHandle(ref, () => {
+            return Object.assign(divRef.current || {}, {
+                setActiveTab: (tab: string) => setActiveTab(tab)
+            }) as ResultsSectionRefHandle;
+        });
 
         // Calculate statistics
         const totalVideos = videos.length;
         const averageScore = videos.length > 0 ? videos.reduce((sum, video) => sum + video.engagement_score, 0) / videos.length : 0;
 
         return (
-            <div ref={ref} className="space-y-8 animate-slide-up">
+            <div ref={divRef} className="space-y-8 animate-slide-up">
                 {/* Results Summary Card */}
                 <Card className="shadow-xl border-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                     <CardContent className="p-4">
@@ -87,7 +94,7 @@ const ResultsSection = forwardRef<HTMLDivElement, ResultsSectionProps>(
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {videos.map((video: VideoResult, index: number) => (
                                 <Card
-                                    key={`video-${video.id}-${index}`}
+                                    key={`video-${video.video_id}-${index}`}
                                     className="group hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border-0 bg-white/80 backdrop-blur-sm animate-slide-up overflow-hidden"
                                     style={{ animationDelay: `${index * 150}ms` }}
                                 >
