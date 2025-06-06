@@ -1,8 +1,22 @@
+export interface Thumbnail {
+    url: string
+    width: number
+    height: number
+}
+
+export interface Thumbnails {
+    default?: Thumbnail
+    medium?: Thumbnail
+    high?: Thumbnail
+    standard?: Thumbnail
+    maxres?: Thumbnail
+}
+
 export interface VideoResult {
-    video_id: string
     title: string
     description: string
-    thumbnail: string
+    video_id: string
+    thumbnails: Thumbnails
     url: string
     relevance_score: number
     engagement_score: number;
