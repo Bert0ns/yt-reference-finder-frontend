@@ -100,7 +100,7 @@ const ResultsSection = forwardRef<ResultsSectionRefHandle, ResultsSectionProps>(
                                 >
                                     <div className="relative overflow-hidden">
                                         <Image
-                                            src={video.thumbnail || "/placeholder.svg?height=300&width=500"}
+                                            src={video.thumbnails.high?.url || video.thumbnails.default?.url || "/placeholder.svg?height=300&width=500"}
                                             alt={video.title}
                                             className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                                             width={500}
