@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reference Finder (Frontend)
 
-## Getting Started
+Reference Finder is a Next.js web app that analyzes study notes and suggests relevant YouTube videos. Users can paste text or upload a file, then review extracted keywords, search queries, and recommended videos. The current API route returns mock data to demonstrate the end-to-end flow. It is also possible to link with the appropriate backend: https://github.com/Bert0ns/yt-reference-finder-backend
 
-First, run the development server:
+## Features
+
+- Landing page with product overview, use cases, and FAQ
+- Reference Finder flow with form input, loading state, and results tabs
+- Mock API that simulates keyword extraction and video matching
+- Tailwind CSS styling with Radix UI components
+
+## Pages
+
+- `/` - Marketing landing page
+- `/reference-finder` - Main tool UI
+
+## API (Mock)
+
+`POST /api/process`
+
+- Accepts `multipart/form-data` with `text` and/or `file`
+- Returns `keywords`, `queries`, and `videos` in a `ProcessResponse` object
+- Uses mock data and simulated latency to mirror a real pipeline
+
+## Tech Stack
+
+- Next.js App Router
+- React 19
+- TypeScript
+- Tailwind CSS
+- Radix UI
+
+## Configuration
+
+Site metadata lives in `website.config.ts` and is used by the header and SEO metadata. Update the title, description, or menu items there.
+
+## Development
+
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint
 
-## Learn More
+## Notes on the Mock Pipeline
 
-To learn more about Next.js, take a look at the following resources:
+The API route currently returns static sample keywords, queries, and videos. To connect a real backend, insert the url of the backend server in the .env file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Build the app and run the production server:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```
