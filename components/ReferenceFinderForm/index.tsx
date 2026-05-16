@@ -7,7 +7,7 @@ import FileUpload from "@/components/FileUpload";
 import SubmitButton from "@/components/SubmitButton";
 import {FileText, Upload} from "lucide-react";
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
 
 const MainForm: React.FC<MainFormProps> = ({
     resetFormState,
