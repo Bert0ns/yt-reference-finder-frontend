@@ -153,6 +153,8 @@ const MainForm: React.FC<MainFormProps> = ({
                                 return updatedResults;
                             });
 
+                            console.log("Current status:", data.status);
+
                             if (data.status === StreamProcessStatus.KEYWORDS_EXTRACTED) {
                                 setShowResults(true);
                             }
